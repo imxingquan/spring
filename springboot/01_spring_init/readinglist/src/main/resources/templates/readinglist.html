@@ -1,0 +1,32 @@
+
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/style.css}" ></link>
+
+</head>
+<body>
+    <h2><span th:text="${reader}"></span> 读者图书目录</h2>
+    <div th:unless="${#lists.isEmpty(books)}">
+        <dl th:each="book:${books}">
+            图书：<span th:text="${book.title}">Title</span><br/>
+            作者：<span th:text="${book.author}">author</span><br/>
+            ISBN：<span th:text="${book.isbn}">isbn</span><br/>
+            描述：<span th:if="${book.description}"
+                  th:text="${book.description}">Description</span>
+            <span th:if="${book.description eq null}"
+                  th:text="${book.description}">没有描述内容</span>
+        </dl>
+    </div>
+
+    <h3>添加书籍</h3>
+    <form method="POST">
+        图书名称：<input type="text" name="title" size="50"></input><p></p>
+        作者：<input type="text" name="author" size="50"/><p/>
+        ISBN:<input type="text" name="isbn" size="15"/><p/>
+        描述:<textarea name="description" cols="80" rows="5"></textarea><p/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
