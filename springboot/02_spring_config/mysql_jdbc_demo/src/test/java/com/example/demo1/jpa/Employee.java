@@ -1,10 +1,9 @@
 package com.example.demo1.jpa;
 
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Employee {
